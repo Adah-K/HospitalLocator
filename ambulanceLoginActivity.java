@@ -48,7 +48,7 @@ public class ambulanceLoginActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Toast.makeText(ambulanceLoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                Intent mapIntent = new Intent (ambulanceLoginActivity.this, mapActivity.class);
+                Intent mapIntent = new Intent (ambulanceLoginActivity.this, MapsActivity.class);
                 startActivity(mapIntent);
             }
         });

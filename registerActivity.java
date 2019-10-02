@@ -81,7 +81,7 @@ public class registerActivity extends AppCompatActivity
                     Toast.makeText(registerActivity.this, "An error occurred, Please try again in a few moments", Toast.LENGTH_LONG).show();
                 }
 
-                Intent mapIntent = new Intent (registerActivity.this, mapActivity.class);
+                Intent mapIntent = new Intent (registerActivity.this, MapsActivity.class);
                 startActivity(mapIntent);
                 Toast.makeText(registerActivity.this, "Welcome...", Toast.LENGTH_LONG).show();
 
