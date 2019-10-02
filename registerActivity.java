@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -37,31 +38,40 @@ public class registerActivity extends AppCompatActivity
         pword = findViewById(R.id.registerPassword);
         signup = findViewById(R.id.registerButton);
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 String e_mail = email.getText().toString();
                 String p_word = pword.getText().toString();
 
-                if(e_mail.isEmpty()){
+                if(e_mail.isEmpty())
+                {
                     email.setError("Fill in email field");
                     email.requestFocus();
                 }
-                else if(p_word.isEmpty()){
+                else if(p_word.isEmpty())
+                {
                     pword.setError("Password field is empty");
                     pword.requestFocus();
                 }
-                else if(p_word.isEmpty() && e_mail.isEmpty()){
+                else if(p_word.isEmpty() && e_mail.isEmpty())
+                {
                     Toast.makeText(registerActivity.this, "Fields are empty!!", Toast.LENGTH_SHORT).show();
                 }
-                else if (!(p_word.isEmpty() && e_mail.isEmpty())){
+                else if (!(p_word.isEmpty() && e_mail.isEmpty()))
+                {
                     fbAuth.createUserWithEmailAndPassword(e_mail, p_word).addOnCompleteListener(registerActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful()){
+                            if(!task.isSuccessful())
+                            {
                                 Toast.makeText(registerActivity.this, "Sign up Successful", Toast.LENGTH_SHORT).show();
                             }
-                            else {
+                            else
+                            {
+                                Toast.makeText(registerActivity.this, "Sign up Unsuccessful", Toast.LENGTH_SHORT).show();
 
                             }
                         }
@@ -71,7 +81,9 @@ public class registerActivity extends AppCompatActivity
                     Toast.makeText(registerActivity.this, "An error occurred, Please try again in a few moments", Toast.LENGTH_LONG).show();
                 }
 
-
+                Intent mapIntent = new Intent (registerActivity.this, mapActivity.class);
+                startActivity(mapIntent);
+                Toast.makeText(registerActivity.this, "Welcome...", Toast.LENGTH_LONG).show();
 
             }
         });

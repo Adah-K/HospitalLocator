@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class patientLoginActivity extends AppCompatActivity
 {
@@ -38,6 +39,15 @@ public class patientLoginActivity extends AppCompatActivity
             {
                 Intent registerIntent = new Intent(patientLoginActivity.this, registerActivity.class);
                 startActivity(registerIntent);
+            }
+        });
+        patientLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Toast.makeText(patientLoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                Intent mapIntent = new Intent (patientLoginActivity.this, mapActivity.class);
+                startActivity(mapIntent);
             }
         });
     }

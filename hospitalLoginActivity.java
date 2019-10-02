@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class hospitalLoginActivity extends AppCompatActivity
 {
@@ -36,6 +37,15 @@ public class hospitalLoginActivity extends AppCompatActivity
             {
                 Intent registerIntent = new Intent(hospitalLoginActivity.this, registerActivity.class);
                 startActivity(registerIntent);
+            }
+        });
+        hospitalLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Toast.makeText(hospitalLoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                Intent mapIntent = new Intent (hospitalLoginActivity.this, mapActivity.class);
+                startActivity(mapIntent);
             }
         });
     }
